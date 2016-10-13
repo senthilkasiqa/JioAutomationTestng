@@ -56,7 +56,7 @@ public class JioExpectedConditions {
 
 			public Boolean apply(MobileElement element) {
 				element.setId("-1");
-				return element !=null && element.isEnabled() ||element.isDisplayed();
+				return element != null && element.isEnabled() || element.isDisplayed();
 			}
 		};
 	}

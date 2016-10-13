@@ -62,6 +62,49 @@ public class LoginPageObjects {
 	@iOSFindBy(xpath = "//UIAApplication[1]/UIAWindow[2]/UIATableView[1]/UIATableCell[2]")
 	public MobileElement Settings_Screen;
 	
+	
+	@iOSFindBy(id = "Files")
+	public MobileElement JioLoginTutorialFirstHead;
+	
+	@iOSFindBy(id = "All your content at your fingertips on cloud. Store, Share & Stream")
+	public MobileElement JioLoginTutorialFirstMsg;
+	
+	@iOSFindBy(id = "Auto backup content")
+	public MobileElement JioLoginTutorialSecondHead;
+	
+	@iOSFindBy(id = "Backup & view a lifetime of photos, videos, music & documents")
+	public MobileElement JioLoginTutorialSecondMsg;
+	
+	@iOSFindBy(id = "Cloud address book")
+	public MobileElement JioLoginTutorialThirdHead;
+	
+	@iOSFindBy(id = "Your online address so that you never have to worry about losing your contacts")
+	public MobileElement JioLoginTutorialThirdMsg;
+	
+
+	public MobileElement getJioLoginTutorialFirstHead() {
+		return JioLoginTutorialFirstHead;
+	}
+
+	public MobileElement getJioLoginTutorialFirstMsg() {
+		return JioLoginTutorialFirstMsg;
+	}
+
+	public MobileElement getJioLoginTutorialSecondHead() {
+		return JioLoginTutorialSecondHead;
+	}
+
+	public MobileElement getJioLoginTutorialSecondMsg() {
+		return JioLoginTutorialSecondMsg;
+	}
+
+	public MobileElement getJioLoginTutorialThirdHead() {
+		return JioLoginTutorialThirdHead;
+	}
+
+	public MobileElement getJioLoginTutorialThirdMsg() {
+		return JioLoginTutorialThirdMsg;
+	}
 
 	public MobileElement getOkBtn() {
 		return OkBtn;

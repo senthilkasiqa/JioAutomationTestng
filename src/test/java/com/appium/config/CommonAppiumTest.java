@@ -2,7 +2,6 @@ package com.appium.config;
 
 import java.util.List;
 import java.util.Set;
-import java.util.concurrent.TimeUnit;
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
@@ -22,12 +21,14 @@ import com.relevantcodes.extentreports.LogStatus;
 import com.report.factory.ExtentTestManager;
 
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.SwipeElementDirection;
+import io.appium.java_client.TouchAction;
 
 public class CommonAppiumTest extends RemoteWebElement {
 
-    public  AppiumDriver<MobileElement> driver;
+    public static  AppiumDriver<MobileElement> driver;
     public static final int impliciteTimeOut = 20;
     
     private By by;
@@ -36,7 +37,7 @@ public class CommonAppiumTest extends RemoteWebElement {
     Logger logger = Logger.getLogger(CommonAppiumTest.class);
 
 	public CommonAppiumTest(AppiumDriver<MobileElement> driver) {
-        this.driver = driver;
+        CommonAppiumTest.driver = driver;
     }
 
     public boolean waitForPageToLoad(WebElement id) {
@@ -475,7 +476,7 @@ public class CommonAppiumTest extends RemoteWebElement {
 				if (!this.isPresent(element)) {
 					return false;
 				}
-				eles = this.driver.findElements(this.by);
+				eles = CommonAppiumTest.driver.findElements(this.by);
 			} else {
 				eles = getWrappedDriver().findElements(this.by);
 			}
@@ -490,8 +491,64 @@ public class CommonAppiumTest extends RemoteWebElement {
 		}
 		return false;
 	}
+	public enum SWIPE_DIRECTION_CUSTOM {
+		RIGHT, LEFT;
+	}
 	
+	public static void swipeDirection(SWIPE_DIRECTION_CUSTOM direction) {
+		
+		int height = driver.findElementByClassName("UIAWindow").getSize().getHeight();
+		int width = driver.findElementByClassName("UIAWindow").getSize().getWidth();
 
+		
+		try {
+			
+			 if (direction == SWIPE_DIRECTION_CUSTOM.LEFT) {
+				 
+				 new TouchAction((MobileDriver<MobileElement>) driver).press(width, height/2).waitAction(1000)
+
+		            .moveTo(width/4, height/2).release().perform();
+			 
+			 } else if (direction == SWIPE_DIRECTION_CUSTOM.RIGHT) {
+				 
+				 new TouchAction((MobileDriver<MobileElement>) driver).press(width/4, height/2).waitAction(1000)
+
+		            .moveTo(width, height/2).release().perform();
+			 
+			 }
+		} catch (Exception ex) {
+
+			ex.printStackTrace();
+
+		}
+	}
+	
+	
+	public static boolean verifyTrue(boolean condition, String SuccessMessage, String FailureMessage) {
+		if (condition) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	public void enterTextInAppFieldIos(String sText) throws Exception {
+		try {
+			driver.executeScript("target.frontMostApp().keyboard().keys()['26'].touchAndHold(10.0)");
+			driver.executeScript("target.frontMostApp().keyboard().typeString('" + sText + "')");	
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			throw ex;
+		}
+	}
+	
+	public static void pause(long timeout) {
+		try {
+			Thread.sleep(timeout);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
 //	public static File captureScreenShot() {
 //
 //		WebDriver augmentedDriver = new Augmenter().augment(driver);

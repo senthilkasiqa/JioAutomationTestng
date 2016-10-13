@@ -8,6 +8,7 @@ import com.appium.page.objects.LoginPageObjects;
 import com.appium.page.objects.MyFilesObjects;
 import com.appium.pages.LoginPage;
 import com.appium.pages.MyFilesPage;
+import com.appium.pages.UploadFilesFromIcloud;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
@@ -35,6 +36,11 @@ public class iOSFlow extends CommonAppiumTest implements DeviceInterface {
 			myFilesPage.verifyFileCount();
 	
 	}
+	
+	public void UploadFilesIcloud(UploadFilesFromIcloud uploadFilesFromIcloud) {
+		uploadFilesFromIcloud.waitForHomePageToLoad();
+
+}
 
 
   

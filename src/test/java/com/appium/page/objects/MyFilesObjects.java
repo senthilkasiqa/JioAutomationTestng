@@ -1,5 +1,7 @@
 package com.appium.page.objects;
 
+import org.openqa.selenium.support.FindBy;
+
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSFindBy;
@@ -9,6 +11,26 @@ public class MyFilesObjects {
 	@AndroidFindBy(id = "")
 	@iOSFindBy(id = "My files")
 	public MobileElement Home_Page;
+	
+	@AndroidFindBy(id = "")
+	@iOSFindBy(id = "All Files")
+	public MobileElement AllFilesBtn;
+	
+	@AndroidFindBy(id = "")
+	@iOSFindBy(id = "Photos")
+	public MobileElement PhotosBtn;
+	
+	@AndroidFindBy(id = "")
+	@iOSFindBy(id = "Videos")
+	public MobileElement VideosBtn;
+	
+	@AndroidFindBy(id = "")
+	@iOSFindBy(id = "Music")
+	public MobileElement MusicBtn;
+	
+	@AndroidFindBy(id = "")
+	@iOSFindBy(id = "Other files")
+	public MobileElement OtherFilesBtn;
 
 	@AndroidFindBy(id = "")
 	@iOSFindBy(id = "all_item_count")
@@ -45,7 +67,95 @@ public class MyFilesObjects {
 	@AndroidFindBy(id = "")
 	@iOSFindBy(id = "create_folder_bar_btn")
 	public MobileElement CreateFolderBtn;
+	
+	@AndroidFindBy(id = "")
+	@iOSFindBy(id = "Done")
+	public MobileElement CreateFolderDoneBtn;
+	
+	@AndroidFindBy(id = "")
+	@iOSFindBy(id = "back_btn")
+	public MobileElement BackBtn;
+	
+	@AndroidFindBy(id = "")
+	@iOSFindBy(id = "Camera")
+	public MobileElement CameraBtn;
+	
+	@AndroidFindBy(id = "")
+	@iOSFindBy(id = "PhotoCapture")
+	public MobileElement CameraCaptureBtn;
+	
+	@AndroidFindBy(id = "")
+	@iOSFindBy(id = "Use Photo")
+	public MobileElement UsePhotoBtn;
+	
+	@AndroidFindBy(id = "")
+	@iOSFindBy(id = "upload_label")
+	public MobileElement UploadToastBar;
+	
+	@AndroidFindBy(id = "")
+	@FindBy(xpath = "//UIAApplication[1]/UIAWindow[1]/UIACollectionView[1]/UIACollectionCell[1]/UIAButton[1]")
+	public MobileElement MoreFileOptionBtn;
+	
+	@AndroidFindBy(id = "")
+	@iOSFindBy(id = "Delete")
+	public MobileElement DeleteBtn;
+	
+	@AndroidFindBy(id = "")
+	@iOSFindBy(id = "Are you sure you want to delete this item?")
+	public MobileElement DeletePopMsg;
+	
+	@AndroidFindBy(id = "")
+	@iOSFindBy(id = "Cancel")
+	public MobileElement DeleteCancelBtn;
+	
+	@AndroidFindBy(id = "")
+	@iOSFindBy(id = "0")
+	public MobileElement SelectFirstFolder;
+	
 
+	public MobileElement getSelectFirstFolder() {
+		return SelectFirstFolder;
+	}
+
+	public MobileElement getMoreFileOptionBtn() {
+		return MoreFileOptionBtn;
+	}
+
+	public MobileElement getDeleteBtn() {
+		return DeleteBtn;
+	}
+
+	public MobileElement getDeletePopMsg() {
+		return DeletePopMsg;
+	}
+
+	public MobileElement getDeleteCancelBtn() {
+		return DeleteCancelBtn;
+	}
+
+	public MobileElement getCameraBtn() {
+		return CameraBtn;
+	}
+
+	public MobileElement getCameraCaptureBtn() {
+		return CameraCaptureBtn;
+	}
+
+	public MobileElement getUsePhotoBtn() {
+		return UsePhotoBtn;
+	}
+
+	public MobileElement getUploadToastBar() {
+		return UploadToastBar;
+	}
+
+	public MobileElement getBackBtn() {
+		return BackBtn;
+	}
+
+	public MobileElement getCreateFolderDoneBtn() {
+		return CreateFolderDoneBtn;
+	}
 
 	public MobileElement getUploadAddBtn() {
 		return UploadAddBtn;
@@ -69,6 +179,26 @@ public class MyFilesObjects {
 
 	public MobileElement getAll_Files_Count() {
 		return All_Files_Count;
+	}
+
+	public MobileElement getAllFilesBtn() {
+		return AllFilesBtn;
+	}
+
+	public MobileElement getPhotosBtn() {
+		return PhotosBtn;
+	}
+
+	public MobileElement getVideosBtn() {
+		return VideosBtn;
+	}
+
+	public MobileElement getMusicBtn() {
+		return MusicBtn;
+	}
+
+	public MobileElement getOtherFilesBtn() {
+		return OtherFilesBtn;
 	}
 
 	public MobileElement getPhotos_File_Count() {

@@ -4,6 +4,7 @@ import com.appium.config.CommonAppiumTest;
 import com.appium.config.DeviceInterface;
 import com.appium.pages.LoginPage;
 import com.appium.pages.MyFilesPage;
+import com.appium.pages.UploadFilesFromIcloud;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
@@ -26,5 +27,10 @@ public class AndroidFlow extends CommonAppiumTest implements DeviceInterface {
 		// TODO Auto-generated method stub
 		
 	}
+	
+	public void UploadFilesIcloud(UploadFilesFromIcloud uploadFilesFromIcloud) {
+		uploadFilesFromIcloud.waitForHomePageToLoad();
+
+}
 
 }
