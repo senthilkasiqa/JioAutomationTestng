@@ -13,9 +13,6 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
-import com.appium.pages.AccountsPage;
-import com.appium.pages.LoginPage;
-
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
@@ -36,9 +33,7 @@ public class Utils {
     public AppiumDriver<MobileElement> driver;
     public static Properties prop = new Properties();
     static InputStream input = null;
-
-    LoginPage loginPage;
-    AccountsPage accountsPage;
+ 
  
 
     @BeforeClass public AppiumDriver<MobileElement> getDriver() throws IOException {

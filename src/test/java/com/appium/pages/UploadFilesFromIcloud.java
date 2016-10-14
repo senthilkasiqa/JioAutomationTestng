@@ -33,8 +33,20 @@ public class UploadFilesFromIcloud extends CommonAppiumTest {
 	}
 
 	public UploadFilesFromIcloud UploadFilesIcloud() {
-		runnerInfo.UploadFilesIcloud(this);
+		runnerInfo.uploadFilesIcloud(this);
 		return new UploadFilesFromIcloud(driver);
+	}
+	
+	public void uploadFileFromCamera(String value){
+		if (verifyPresent(uploadFilesFromIcloudPageObject.getUploadAddBtn())) {
+			uploadFilesFromIcloudPageObject.getUploadAddBtn().click();
+			uploadFilesFromIcloudPageObject.getCameraBtn().click();
+			uploadFilesFromIcloudPageObject.getCameraCaptureBtn().click();
+			verifyPresent(uploadFilesFromIcloudPageObject.getUsePhotoBtn());
+			uploadFilesFromIcloudPageObject.getUsePhotoBtn().click();
+			waitForPresent(uploadFilesFromIcloudPageObject.getUploadSuccessTxt(), 3000);
+			verifyText(uploadFilesFromIcloudPageObject.getUploadSuccessTxt(), value);
+		}
 	}
 	
 	public void uploadOtherFiles(){
@@ -131,7 +143,11 @@ public class UploadFilesFromIcloud extends CommonAppiumTest {
 		waitForHomePageToLoad();
 	}
 	
-	
-	
+	public void verifyUploadFilesFromCamera(String value){
+		uploadFilesFromIcloudPageObject.getPhotosBtn().click();
+		verifyPresent(uploadFilesFromIcloudPageObject.getPhotosTxt());
+		uploadFileFromCamera(value);
+		
+	}
 
 }

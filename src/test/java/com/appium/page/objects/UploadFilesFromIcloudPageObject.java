@@ -8,6 +8,26 @@ public class UploadFilesFromIcloudPageObject {
 
 	
 	@AndroidFindBy(id = "")
+	@iOSFindBy(id = "All Files")
+	public MobileElement AllFilesBtn;
+	
+	@AndroidFindBy(id = "")
+	@iOSFindBy(id = "Photos")
+	public MobileElement PhotosBtn;
+	
+	@AndroidFindBy(id = "")
+	@iOSFindBy(id = "Videos")
+	public MobileElement VideosBtn;
+	
+	@AndroidFindBy(id = "")
+	@iOSFindBy(id = "Music")
+	public MobileElement MusicBtn;
+	
+	@AndroidFindBy(id = "")
+	@iOSFindBy(id = "Other files")
+	public MobileElement OtherFilesBtn;
+	
+	@AndroidFindBy(id = "")
 	@iOSFindBy(id = "My files")
 	public MobileElement Home_Page;
 	
@@ -209,11 +229,37 @@ public class UploadFilesFromIcloudPageObject {
 	@iOSFindBy(id = "Interstellar 2014 Screen 03.png, Image, 1.6 MB")
 	public MobileElement PhotosFithFile;
 	
+	@AndroidFindBy(id = "")
+	@iOSFindBy(id = "upload_label")
+	public MobileElement UploadSuccessTxt;
 	
-	
+
+	public MobileElement getUploadSuccessTxt() {
+		return UploadSuccessTxt;
+	}
 
 	public MobileElement getMusicsTxt() {
 		return MusicsTxt;
+	}
+
+	public MobileElement getAllFilesBtn() {
+		return AllFilesBtn;
+	}
+
+	public MobileElement getPhotosBtn() {
+		return PhotosBtn;
+	}
+
+	public MobileElement getVideosBtn() {
+		return VideosBtn;
+	}
+
+	public MobileElement getMusicBtn() {
+		return MusicBtn;
+	}
+
+	public MobileElement getOtherFilesBtn() {
+		return OtherFilesBtn;
 	}
 
 	public MobileElement getMusicsFirstFile() {

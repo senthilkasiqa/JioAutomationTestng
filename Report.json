@@ -1,20 +1,6 @@
 [
   {
     "deviceUDID": "b4d33c0d6661b9933a6da827c540164f2eafa101",
-    "testCases": [
-      {
-        "testCase": "com.appium.tests.LoginTest",
-        "testMethod": [
-          {
-            "methodName": "verifyCreateFolderFunction",
-            "screenShots": []
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "deviceUDID": "b4d33c0d6661b9933a6da827c540164f2eafa101",
     "testCases": []
   }
 ]

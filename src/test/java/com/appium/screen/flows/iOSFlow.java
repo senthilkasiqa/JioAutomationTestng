@@ -6,6 +6,7 @@ import com.appium.config.CommonAppiumTest;
 import com.appium.config.DeviceInterface;
 import com.appium.page.objects.LoginPageObjects;
 import com.appium.page.objects.MyFilesObjects;
+import com.appium.pages.LogOutPage;
 import com.appium.pages.LoginPage;
 import com.appium.pages.MyFilesPage;
 import com.appium.pages.UploadFilesFromIcloud;
@@ -37,10 +38,15 @@ public class iOSFlow extends CommonAppiumTest implements DeviceInterface {
 	
 	}
 	
-	public void UploadFilesIcloud(UploadFilesFromIcloud uploadFilesFromIcloud) {
+	public void uploadFilesIcloud(UploadFilesFromIcloud uploadFilesFromIcloud) {
 		uploadFilesFromIcloud.waitForHomePageToLoad();
 
 }
+	
+	public void logOut(LogOutPage logOutPage){
+		logOutPage.logOutFunction();
+	}
+
 
 
   

@@ -76,21 +76,11 @@ public class MyFilesObjects {
 	@iOSFindBy(id = "back_btn")
 	public MobileElement BackBtn;
 	
-	@AndroidFindBy(id = "")
-	@iOSFindBy(id = "Camera")
-	public MobileElement CameraBtn;
+	
 	
 	@AndroidFindBy(id = "")
-	@iOSFindBy(id = "PhotoCapture")
-	public MobileElement CameraCaptureBtn;
-	
-	@AndroidFindBy(id = "")
-	@iOSFindBy(id = "Use Photo")
-	public MobileElement UsePhotoBtn;
-	
-	@AndroidFindBy(id = "")
-	@iOSFindBy(id = "upload_label")
-	public MobileElement UploadToastBar;
+	@FindBy(xpath = "//UIAApplication[1]/UIAWindow[1]/UIACollectionView[1]/UIACollectionCell[1]/UIAStaticText[3]")
+	public MobileElement TitleTxt;
 	
 	@AndroidFindBy(id = "")
 	@FindBy(xpath = "//UIAApplication[1]/UIAWindow[1]/UIACollectionView[1]/UIACollectionCell[1]/UIAButton[1]")
@@ -109,9 +99,13 @@ public class MyFilesObjects {
 	public MobileElement DeleteCancelBtn;
 	
 	@AndroidFindBy(id = "")
-	@iOSFindBy(id = "0")
+	@FindBy(xpath = "//UIAApplication[1]/UIAWindow[1]/UIACollectionView[1]/UIACollectionCell[1]")
 	public MobileElement SelectFirstFolder;
 	
+
+	public MobileElement getTitleTxt() {
+		return TitleTxt;
+	}
 
 	public MobileElement getSelectFirstFolder() {
 		return SelectFirstFolder;
@@ -131,22 +125,6 @@ public class MyFilesObjects {
 
 	public MobileElement getDeleteCancelBtn() {
 		return DeleteCancelBtn;
-	}
-
-	public MobileElement getCameraBtn() {
-		return CameraBtn;
-	}
-
-	public MobileElement getCameraCaptureBtn() {
-		return CameraCaptureBtn;
-	}
-
-	public MobileElement getUsePhotoBtn() {
-		return UsePhotoBtn;
-	}
-
-	public MobileElement getUploadToastBar() {
-		return UploadToastBar;
 	}
 
 	public MobileElement getBackBtn() {

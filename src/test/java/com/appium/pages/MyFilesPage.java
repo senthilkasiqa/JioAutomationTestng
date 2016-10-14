@@ -50,9 +50,9 @@ public class MyFilesPage extends CommonAppiumTest {
 //
 //		}
 	
-	public MobileElement getFolderName(String name){
-		return driver.findElementById(name);
-	}
+//	public MobileElement getFolderName(){
+//		return driver.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIACollectionView[1]/UIACollectionCell[1]/UIAStaticText[3]"));
+//	}
 
 	public void waitForHomePageToLoad() {
 		waitForElement(myFilesObjects.Home_Page);
@@ -64,43 +64,6 @@ public class MyFilesPage extends CommonAppiumTest {
 		
 	}
 
-	public void uploadFilesFromDifferentSource(uploadMethod upload, int photoSlectionRows)
-			throws InterruptedException, IOException {
-
-		if (upload.equals("DEVICECAMERA")) {
-
-			if (verifyPresent(myFilesObjects.getUploadAddBtn())) {
-				myFilesObjects.getUploadAddBtn().click();
-				myFilesObjects.getCameraBtn().click();
-				myFilesObjects.getCameraCaptureBtn().click();
-				verifyPresent(myFilesObjects.getUsePhotoBtn());
-				myFilesObjects.getUsePhotoBtn().click();
-				waitForHomePageToLoad();
-			}
-		} else if (upload.equals("ICLOUD")) {
-			if (verifyPresent(myFilesObjects.getUploadAddBtn())) {
-				myFilesObjects.getUploadAddBtn().click();
-
-				myFilesObjects.getUploadBtn().click();
-				waitForHomePageToLoad();
-				
-			} else if (upload.equals("LOCAL")) {
-				if (verifyPresent(myFilesObjects.getUploadAddBtn())) {
-					myFilesObjects.getUploadAddBtn().click();
-					photoSelect(photoSlectionRows);
-					myFilesObjects.getUploadBtn().click();
-					waitForHomePageToLoad();
-				}
-			}
-		} else {
-			log.info("Couldnot able to upload files from any source");
-		}
-
-	}
-
-	public void uploadFilesFromIcloud() {
-
-	}
 
 	public void verifyFileCount() {
 		verifyPresent(myFilesObjects.getAll_Files_Count());
@@ -132,29 +95,31 @@ public class MyFilesPage extends CommonAppiumTest {
 
 	public String createFolder() {
 
-		String FolderName = StringUtility.GenerateRandomString(10, Mode.ALPHANUMERIC);
+		String FolderName1 = StringUtility.GenerateRandomString(10, Mode.ALPHANUMERIC);
 		if (verifyPresent(myFilesObjects.getUploadAddBtn())) {
 			myFilesObjects.getUploadAddBtn().click();
 			verifyPresent(myFilesObjects.getCreateFolderBtn());
 			myFilesObjects.getCreateFolderBtn().click();
 			try {
-				enterTextInAppFieldIos(FolderName);
+				enterTextInAppFieldIos(FolderName1);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			myFilesObjects.getCreateFolderDoneBtn().click();
 		}
-		return FolderName;
+		return FolderName1;
 
 	}
 	
 	public String verifyFolderName() {
+		
 		String folderName = createFolder();
-		if (folderName.equalsIgnoreCase(getFolderName(folderName).getText())) {
-			verifyText(getFolderName(folderName), folderName);
-			waitForPresent(myFilesObjects.getBackBtn(), 300);
-			myFilesObjects.getBackBtn().click();
+		waitForPresent(myFilesObjects.getBackBtn(), 3000);
+		myFilesObjects.getBackBtn().click();
+		//System.out.println("<<<>>>>><<<<>>>>"+getFolderName().getText());
+		if (folderName.equalsIgnoreCase(myFilesObjects.getTitleTxt().getText())) {	
+			verifyText(myFilesObjects.getTitleTxt(), folderName);
 		}
 		return folderName;
 
@@ -196,9 +161,12 @@ public class MyFilesPage extends CommonAppiumTest {
 		String FirstFolder=verifyFolderName();
 		waitForPresent(myFilesObjects.getSelectFirstFolder(), 1000);
 		myFilesObjects.getSelectFirstFolder().click();
-		verifyFolderName();
+		verifyPresent(myFilesObjects.getUploadAddBtn());
+		String FirstFolder1=verifyFolderName();
 		deleteFolder(value);
-		verifyText(getFolderName(FirstFolder), FirstFolder);
+		waitForPresent(myFilesObjects.getBackBtn(), 3000);
+		myFilesObjects.getBackBtn().click();
+		verifyText(myFilesObjects.getTitleTxt(), FirstFolder);
 		
 	}
 	
