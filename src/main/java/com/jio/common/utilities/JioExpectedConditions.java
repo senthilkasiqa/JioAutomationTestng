@@ -62,7 +62,7 @@ public class JioExpectedConditions {
 	}
 
 	public static ExpectedCondition<MobileElement, Boolean> notpresenteOfElement() {
-		return new ExpectedCondition<MobileElement, Boolean>() {
+		 return new ExpectedCondition<MobileElement, Boolean>() {
 
 			public Boolean apply(MobileElement element) {
 				element.setId("-1");

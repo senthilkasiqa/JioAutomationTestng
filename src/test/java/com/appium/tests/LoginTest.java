@@ -36,14 +36,14 @@ public class LoginTest extends UserBaseTest {
 //		myFilesPage.verifycountFiles();
 //	}
 
-//	@Test(priority = 4)
-//	public void uploadFiles() throws InterruptedException {
-//		UploadFilesFromIcloud uploadFilesFromIcloud = new UploadFilesFromIcloud(driver);
-//		uploadFilesFromIcloud.UploadFilesIcloud();
-//		uploadFilesFromIcloud.uploadOtherFiles();
-//		uploadFilesFromIcloud.uploadFiles(PropertyHandler.getKeyValues("configuration.properties", "MaxFileSize"),
-//				PropertyHandler.getKeyValues("configuration.properties", "fileNo2"));
-//	}
+	@Test(priority = 4)
+	public void uploadFiles() throws InterruptedException {
+		UploadFilesFromIcloud uploadFilesFromIcloud = new UploadFilesFromIcloud(driver);
+		uploadFilesFromIcloud.UploadFilesIcloud();
+		uploadFilesFromIcloud.uploadOtherFiles();
+		uploadFilesFromIcloud.uploadFiles(PropertyHandler.getKeyValues("configuration.properties", "MaxFileSize"),
+				PropertyHandler.getKeyValues("configuration.properties", "fileNo2"));
+	}
 
 	@Test(priority = 5)
 	public void verifyCreateFolderFunction() throws InterruptedException {

@@ -20,12 +20,14 @@ public class UserBaseTest extends AppiumParallelTest {
 
     JSonParser jSonParser = new JSonParser();
 
-    @BeforeMethod(alwaysRun = true) public void startApp(Method name) throws Exception {
+    @BeforeMethod(alwaysRun = true) 
+    public void startApp(Method name) throws Exception {
         driver = startAppiumServerInParallel(name.getName());
         startLogResults(name.getName());
     }
 
-    @AfterMethod(alwaysRun = true) public void killServer(ITestResult result)
+    @AfterMethod(alwaysRun = true) 
+    public void killServer(ITestResult result)
         throws InterruptedException, IOException, URISyntaxException {
         endLogTestResults(result);
         getDriver().quit();
